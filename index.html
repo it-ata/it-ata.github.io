@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chronological Coordinates for the Weary Traveler</title>
+  <title>Chronological Coordinates <3</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
     body {
@@ -14,22 +14,49 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
+      position: relative;
     }
-    .box {
-      background-color: cyan;
-      padding: 20px;
-      border-radius: 5px;
+
+    .bubble {
+      position: absolute;
+      bottom: -100px;
+      border-radius: 50%;
+      background-color: rgba(0, 255, 255, 0.5);
+      animation: rise 5s linear infinite;
+    }
+
+    @keyframes rise {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-100%);
+      }
     }
   </style>
 </head>
 <body>
   <div class="container text-center">
-    <div class="box">
-      <h1 id="date-display"></h1>
-      <h1 id="time-display"></h1>
-    </div>
+    <h1 id="date-display"></h1>
+    <h1 id="time-display"></h1>
   </div>
+
   <script>
+    function createBubble() {
+      const bubble = document.createElement('div');
+      bubble.classList.add('bubble');
+      bubble.style.width = `${Math.random() * 100}px`;
+      bubble.style.height = bubble.style.width;
+      bubble.style.left = `${Math.random() * 100}vw`;
+      bubble.style.animationDuration = `${Math.random() * 3 + 2}s`;
+      document.body.appendChild(bubble);
+
+      setTimeout(() => {
+        bubble.remove();
+      }, 5000);
+    }
+
     function updateDateTimeDisplay() {
       const dateDisplay = document.getElementById('date-display');
       const timeDisplay = document.getElementById('time-display');
@@ -40,6 +67,8 @@
 
     updateDateTimeDisplay();
     setInterval(updateDateTimeDisplay, 1000);
+
+    setInterval(createBubble, 200);
   </script>
 </body>
 </html>
