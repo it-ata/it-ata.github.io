@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vaporwave Date</title>
+  <title>Chronological Coordinates for the Weary Traveler</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
     body {
@@ -15,20 +15,31 @@
       align-items: center;
       justify-content: center;
     }
+    .box {
+      background-color: cyan;
+      padding: 20px;
+      border-radius: 5px;
+    }
   </style>
 </head>
 <body>
   <div class="container text-center">
-    <h1 id="date-display"></h1>
+    <div class="box">
+      <h1 id="date-display"></h1>
+      <h1 id="time-display"></h1>
+    </div>
   </div>
   <script>
-    function updateDateDisplay() {
+    function updateDateTimeDisplay() {
       const dateDisplay = document.getElementById('date-display');
+      const timeDisplay = document.getElementById('time-display');
       const currentDate = new Date();
       dateDisplay.innerHTML = currentDate.toLocaleDateString();
+      timeDisplay.innerHTML = currentDate.toLocaleTimeString();
     }
 
-    updateDateDisplay();
+    updateDateTimeDisplay();
+    setInterval(updateDateTimeDisplay, 1000);
   </script>
 </body>
 </html>
