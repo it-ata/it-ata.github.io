@@ -1,1 +1,34 @@
-<html><h1>Hello World, taste my yummy farts!</h1></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vaporwave Date</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background: linear-gradient(90deg, rgba(223,109,227,1) 0%, rgba(111,69,201,1) 50%, rgba(223,109,227,1) 100%);
+      font-family: 'Digital-7', monospace;
+      color: white;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container text-center">
+    <h1 id="date-display"></h1>
+  </div>
+  <script>
+    function updateDateDisplay() {
+      const dateDisplay = document.getElementById('date-display');
+      const currentDate = new Date();
+      dateDisplay.innerHTML = currentDate.toLocaleDateString();
+    }
+
+    updateDateDisplay();
+  </script>
+</body>
+</html>
